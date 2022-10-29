@@ -11,7 +11,6 @@ import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 public class BlueSideBlueTerminalAuton extends LinearOpMode {
 
     RobotHardwareMap robot = new RobotHardwareMap();
-    BasicAutoDriving autoDriving = new BasicAutoDriving(robot.frontLeftMotor, robot.frontRightMotor, robot.backLeftMotor, robot.backRightMotor);
 
     @Override
     public void runOpMode() {
@@ -21,12 +20,12 @@ public class BlueSideBlueTerminalAuton extends LinearOpMode {
 
 
         if (opModeIsActive()){
-            //WRITE PATHING HERE
-            //autodriving.drive(amtOfCM)
-            //autodriving.strafe(amtOfCM)
-            //autodriving.turn(amtOfDegrees)
-            //Stuff inside of Parenthesis is how much you want to move/turn
-            //Use these function to make the robot follow the path decided in the google doc forever ago
+            robot.frontLeftMotor.setPower(0.5);
+            robot.frontRightMotor.setPower(0.5);
+            robot.backLeftMotor.setPower(0.5);
+            robot.backRightMotor.setPower(0.5);
+            sleep(1500);
+
 
         }
 

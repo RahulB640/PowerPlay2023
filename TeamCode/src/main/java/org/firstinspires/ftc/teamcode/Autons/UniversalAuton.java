@@ -7,16 +7,14 @@ import org.firstinspires.ftc.teamcode.Util.BasicAutoDriving;
 import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 
 
-@Autonomous(name="TuneConstants", group="Auton")
-public class TuneConstants extends LinearOpMode {
+@Autonomous(name="UniversalAuton", group="Auton")
+public class UniversalAuton extends LinearOpMode {
 
     RobotHardwareMap robot = new RobotHardwareMap();
 
     @Override
     public void runOpMode() {
         robot.initialize(hardwareMap);
-        BasicAutoDriving autoDriving = new BasicAutoDriving(robot.frontLeftMotor, robot.frontRightMotor, robot.backLeftMotor, robot.backRightMotor);
-
 
         // Wait for the game to start (driver presses PLAY)
         waitForStart();
@@ -25,13 +23,7 @@ public class TuneConstants extends LinearOpMode {
         if (opModeIsActive()){
 
             //Should go forward 90 cm
-            autoDriving.drive(9);
-            sleep(3000);
-            telemetry.addData("fl ticks", autoDriving.frontLeftMotor.getCurrentPosition());
-            telemetry.addData("fr ticks", autoDriving.frontRightMotor.getCurrentPosition());
-            telemetry.addData("bl ticks", autoDriving.backLeftMotor.getCurrentPosition());
-            telemetry.addData("br ticks", autoDriving.backRightMotor.getCurrentPosition());
-            sleep(3000);
+
             //If it goes to far lower the value of ticksPerCentimeterDrive in the Basic Auto Driving file
             //If it doesn't go far enough than increase the value of ticksPerCentimeterDrive
 
