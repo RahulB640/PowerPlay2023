@@ -6,14 +6,15 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 
 
-@TeleOp(name = "Final Omnidirectional TeleOp", group = "TeleOps")
+@TeleOp(name = "Robot Oriented TeleOp", group = "TeleOps")
 public class RobotOrientedTeleOp extends LinearOpMode {
 
-    RobotHardwareMap robot = new RobotHardwareMap(hardwareMap);
+    RobotHardwareMap robot = new RobotHardwareMap();
 
 
     @Override
     public void runOpMode() {
+        robot.initialize(hardwareMap);
 
         double drive;
         double strafe;

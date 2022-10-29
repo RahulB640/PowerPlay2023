@@ -8,15 +8,15 @@ import org.firstinspires.ftc.teamcode.Util.BasicAutoDriving;
 import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 
 
-@TeleOp(name = "Final Omnidirectional TeleOp", group = "TeleOps")
+@TeleOp(name = "Field Oriented TeleOp", group = "TeleOps")
 public class FieldOrientedTeleOp extends LinearOpMode {
 
-    RobotHardwareMap robot = new RobotHardwareMap(hardwareMap);
+    RobotHardwareMap robot = new RobotHardwareMap();
 
-    BasicAutoDriving autoDriving = new BasicAutoDriving(robot.frontLeftMotor, robot.frontRightMotor, robot.backLeftMotor, robot.backRightMotor);
 
     @Override
     public void runOpMode() {
+        robot.initialize(hardwareMap);
 
         double drive;
         double strafe;

@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.Util;
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.bosch.JustLoggingAccelerationIntegrator;
 import com.qualcomm.robotcore.hardware.DcMotor;
+import com.qualcomm.robotcore.hardware.DcMotorEx;
 import com.qualcomm.robotcore.hardware.DcMotorSimple;
 import com.qualcomm.robotcore.hardware.HardwareDeviceHealthImpl;
 import com.qualcomm.robotcore.hardware.HardwareMap;
@@ -25,18 +26,18 @@ public class RobotHardwareMap {
     HardwareMap hardwareMap = null;
     public ElapsedTime runtime = new ElapsedTime();
 
-    public RobotHardwareMap(HardwareMap hwMap) {
-        initialize(hwMap);
+    public RobotHardwareMap() {
+
     }
 
-    private void initialize(HardwareMap hwMap) {
+    public void initialize(HardwareMap hwMap) {
         hardwareMap = hwMap;
 
         //Connect Motor
-        frontRightMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor");
-        frontLeftMotor = hardwareMap.get(DcMotor.class, "frontLeftMotor");
-        backRightMotor = hardwareMap.get(DcMotor.class, "backRightMotor");
-        backLeftMotor = hardwareMap.get(DcMotor.class, "backLeftMotor");
+        frontRightMotor = hwMap.get(DcMotorEx.class, "frontRightMotor");
+        frontLeftMotor = hwMap.get(DcMotorEx.class, "frontLeftMotor");
+        backRightMotor = hwMap.get(DcMotorEx.class, "backRightMotor");
+        backLeftMotor = hwMap.get(DcMotorEx.class, "backLeftMotor");
 
         //Set Up Motor Direction
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
