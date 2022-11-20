@@ -31,7 +31,7 @@ public class FieldOrientedTeleOp extends LinearOpMode {
 
         double currentAngle;
 
-        double maxMotorSpeed = 0.8;
+        double maxMotorSpeed = 0.6;
 
         double maxPower = 0.0;
 
@@ -57,7 +57,8 @@ public class FieldOrientedTeleOp extends LinearOpMode {
 
 
             if (Math.abs(frontLeftPower) > 1 || Math.abs(frontRightPower) > 1 || Math.abs(backLeftPower) > 1 || Math.abs(backRightPower) > 1){
-                maxPower = Math.max(frontLeftPower, Math.max(frontRightPower, Math.max(backLeftPower, backRightPower)));
+
+                maxPower = Math.max(Math.abs(frontLeftPower), Math.max(Math.abs(frontRightPower), Math.max(Math.abs(backLeftPower), Math.abs(backRightPower))));
 
                 //fix problem
                 frontLeftPower /= maxPower;

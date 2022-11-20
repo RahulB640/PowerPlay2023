@@ -2,10 +2,11 @@ package org.firstinspires.ftc.teamcode.Util;
 
 public final class Constants {
     //TODO: Part 1
-    public static final int bottomLevelShippingHubTicks = 0;
-    public static final int secondLevelShippingHubTicks = 0;
-    public static final int thirdLevelShippingHubTicks = 0;
-    public static final int teamElementHeightTicks = 0;
+    public static final int slideGroundLevelTicks = 0;
+    public static final int lowJunctionSlideTicks = 407;
+    public static final int middleJunctionSlideTicks = 707;
+    public static final int highJunctionSlideTicks = 1050;
+
 
     //TODO: Part 2
     public static final int ticksPerRadian = 0;

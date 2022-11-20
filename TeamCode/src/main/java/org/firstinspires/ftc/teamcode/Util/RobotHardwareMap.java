@@ -20,6 +20,8 @@ public class RobotHardwareMap {
     public DcMotor backRightMotor = null;
     public DcMotor backLeftMotor = null;
 
+    public DcMotor slideMotor = null;
+
     public BNO055IMU imu = null;
 
     //Additional Variable
@@ -39,11 +41,15 @@ public class RobotHardwareMap {
         backRightMotor = hwMap.get(DcMotor.class, "backRightMotor");
         backLeftMotor = hwMap.get(DcMotor.class, "backLeftMotor");
 
+        slideMotor = hwMap.get(DcMotor.class, "slideMotor");
+
         //Set Up Motor Direction
         frontRightMotor.setDirection(DcMotor.Direction.FORWARD);
         frontLeftMotor.setDirection(DcMotor.Direction.REVERSE);
         backRightMotor.setDirection(DcMotor.Direction.FORWARD);
         backLeftMotor.setDirection(DcMotor.Direction.REVERSE);
+
+        slideMotor.setDirection(DcMotor.Direction.FORWARD);
 
         //Set ZERO POWER BEHAVIOR
         frontRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -51,16 +57,29 @@ public class RobotHardwareMap {
         backRightMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         backLeftMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
+        slideMotor.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+
         frontRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         frontLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backLeftMotor.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+
+
+        backRightMotor.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRightMotor.setTargetPosition(0);
+        backRightMotor.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+
+
+
 
         //Set Motors to Use No Power
         frontRightMotor.setPower(0);
         frontLeftMotor.setPower(0);
         backRightMotor.setPower(0);
         backLeftMotor.setPower(0);
+
+        slideMotor.setPower(0);
 
         BNO055IMU.Parameters parameters = new BNO055IMU.Parameters();
         //return value of radians

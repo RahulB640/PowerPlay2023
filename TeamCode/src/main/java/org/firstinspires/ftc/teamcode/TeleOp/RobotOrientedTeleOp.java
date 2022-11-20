@@ -3,6 +3,7 @@ package org.firstinspires.ftc.teamcode.TeleOp;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
+import org.firstinspires.ftc.teamcode.Util.Constants;
 import org.firstinspires.ftc.teamcode.Util.RobotHardwareMap;
 
 
@@ -25,7 +26,7 @@ public class RobotOrientedTeleOp extends LinearOpMode {
         double backLeftPower;
         double backRightPower;
 
-        double maxMotorSpeed = 0.8;
+        double maxMotorSpeed = 0.6;
 
         double maxPower;
 
@@ -54,13 +55,28 @@ public class RobotOrientedTeleOp extends LinearOpMode {
                 backRightPower /= maxPower;
             }
 
-
-
-
             robot.frontLeftMotor.setPower(frontLeftPower * maxMotorSpeed);
             robot.frontRightMotor.setPower(frontRightPower * maxMotorSpeed);
             robot.backRightMotor.setPower(backRightPower * maxMotorSpeed);
             robot.backLeftMotor.setPower(backLeftPower * maxMotorSpeed);
+
+
+            if (gamepad2.dpad_down) {
+                robot.slideMotor.setTargetPosition(Constants.slideGroundLevelTicks);
+            }
+            else if (gamepad2.dpad_left) {
+                robot.slideMotor.setTargetPosition(Constants.lowJunctionSlideTicks);
+            }
+            else if (gamepad2.dpad_right) {
+                robot.slideMotor.setTargetPosition(Constants.middleJunctionSlideTicks);
+            }
+            else if(gamepad2.dpad_up){
+                robot.slideMotor.setTargetPosition(Constants.highJunctionSlideTicks);
+            }
+
+
+
+
 
 
 
